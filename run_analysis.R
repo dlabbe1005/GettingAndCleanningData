@@ -60,8 +60,11 @@ setwd( "C:/Users/labbe-pc/Desktop/Cousera/Getting and Cleaning Data/Programming 
 	
 ## 4. Appropriately labels the data set with descriptive variable names. 
 
-	## Replace the invalid characters from the variable name for an underscore, so the variable names are ready to be used in R
-	colnames(merged_data) <- gsub("[,.()-]","_", colnames(merged_data) )
+	## Remove the invalid characters from the variable name, so the variable names are ready to be used in R
+	colnames(merged_data) <- gsub("[,.()-]","", colnames(merged_data) )
+	
+	## Make the variable names all lower case
+	colnames(merged_data) <- tolower( colnames(merged_data) )
 	
 ## 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
